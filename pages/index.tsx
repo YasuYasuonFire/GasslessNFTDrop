@@ -1,8 +1,12 @@
 import { ConnectWallet, Web3Button } from "@thirdweb-dev/react";
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
+import { useAddress } from "@thirdweb-dev/react";
+
 
 const Home: NextPage = () => {
+  const address = useAddress();
+  const OpenseaURL = "https://testnets.opensea.io/" + address;
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -17,6 +21,11 @@ const Home: NextPage = () => {
             contractAddress="0x5c08Bb7E5cE4993069dB4a3435fE4dcE8a376518"
             action={(contract) => contract.erc721.claim(1)}
             >Claim</Web3Button>
+        </div>
+        <div className={styles.connect}>
+          <a href={OpenseaURL} target="_blank">
+            <button>OpenSeaで自分のウォレットを見る</button>
+          </a>
         </div>
 
         {/* <div className={styles.grid}>
