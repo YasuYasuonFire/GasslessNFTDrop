@@ -16,11 +16,13 @@ const Home: NextPage = () => {
          }
         <p></p>
         <div className={styles.connect}>
-          {/* <ConnectWallet /> */}
+          { <ConnectWallet />}
+          {address && (
           <Web3Button
             contractAddress="0x5c08Bb7E5cE4993069dB4a3435fE4dcE8a376518"
             action={(contract) => contract.erc721.claim(1)}
             >Claim</Web3Button>
+          )}
         </div>
         <div className={styles.connect}>
           <a href={OpenseaURL} target="_blank">
