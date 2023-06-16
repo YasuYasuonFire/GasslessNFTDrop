@@ -1,4 +1,4 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet, Web3Button } from "@thirdweb-dev/react";
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 
@@ -6,21 +6,20 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="http://thirdweb.com/">thirdweb</a>!
+        { <h1 className={styles.title}>
+            かねりん芋屋SBTをGET！
         </h1>
-
-        <p className={styles.description}>
-          Get started by configuring your desired network in{" "}
-          <code className={styles.code}>pages/_app.tsx</code>, then modify the{" "}
-          <code className={styles.code}>pages/index.tsx</code> file!
-        </p>
-
+         }
+        <p></p>
         <div className={styles.connect}>
-          <ConnectWallet />
+          {/* <ConnectWallet /> */}
+          <Web3Button
+            contractAddress="0x5c08Bb7E5cE4993069dB4a3435fE4dcE8a376518"
+            action={(contract) => contract.erc721.claim(1)}
+            >Claim</Web3Button>
         </div>
 
-        <div className={styles.grid}>
+        {/* <div className={styles.grid}>
           <a href="https://portal.thirdweb.com/" className={styles.card}>
             <h2>Portal &rarr;</h2>
             <p>
@@ -46,7 +45,7 @@ const Home: NextPage = () => {
               Discover and clone template projects showcasing thirdweb features.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
     </div>
   );
